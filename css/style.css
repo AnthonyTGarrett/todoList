@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Shadows+Into+Light&display=swap');
+
+:root {
+  scroll-behavior: smooth;
+  --main-line-color: hsl(234, 62%, 86%);
+  --side-line-color: hsl(350, 100%, 91%);
+  --paper-color: hsl(0, 15%, 95%);
+  --ink-color: hsl(0, 0%, 12%);
+  --line-thickness: 3px;
+  --top-space: 4lh;
+}
+
+body {
+  font-family: 'Shadows Into Light', cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 10px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  font-optical-sizing: auto;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Indie Flower', cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.paper {
+  background: var(--paper-color);
+  margin: 2rem;
+  padding: calc(var(--top-space) - 0.5lh) 3rem 1rem 5.5rem;
+  font-family: system-ui;
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: var(--ink-color);
+  background-image: 
+    /* the red line */ linear-gradient(
+      90deg,
+      transparent,
+      transparent 4rem,
+      var(--side-line-color) 4rem,
+      var(--side-line-color) 4.25rem,
+      transparent 4.25rem
+    ),
+    /*  The top space  */
+      linear-gradient(
+        var(--paper-color),
+        var(--paper-color) var(--top-space),
+        transparent var(--top-space)
+      ),
+    /* the blue lines */
+      repeating-linear-gradient(
+        transparent,
+        transparent calc(1lh - var(--line-thickness)),
+        var(--main-line-color) calc(1lh - var(--line-thickness)),
+        var(--main-line-color) 1lh,
+        transparent 1lh
+      );
+  box-shadow: 0 0 1rem rgb(0 0 0 / 0.25);
+}
