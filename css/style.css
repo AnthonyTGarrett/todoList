@@ -59,6 +59,13 @@ img {
   border-radius: 10px;
 }
 
+.todo,
+.complete {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
 #note-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -76,9 +83,6 @@ img {
   transition: all 0.2s ease-in;
   font-size: 2rem;
   padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .note.completed {
@@ -86,8 +90,11 @@ img {
   background-color: rgb(207, 207, 0);
 }
 
-.note:hover {
+/* .note:hover {
   transform: rotate(3deg);
   box-shadow: rgba(99, 99, 99, 0.2) 5px 4px 16px 0px;
   cursor: pointer;
+} */
+
+@media screen and (min-width: 768px) {
 }
