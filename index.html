@@ -8,19 +8,23 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>ToDo List</h1>
+    <h1 class="has-text-centered is-size-1-mobile">ToDo List</h1>
     <div class="container">
-      <div class="enter-task">
+      <div class="fixed-grid has-1-cols">
         <label for="task">Enter a new item</label>
-        <input type="text" name="task" id="task " />
-        <label for="birthday">Birthday:</label>
-        <input type="date" id="birthday" name="birthday" />
-        <button class="btn btn-primary">Add Item</button>
-        <button class="btn btn-primary">Remove Completed</button>
+        <input class="input is-rounded" type="text" name="task" id="task " />
+        <label for="duedate">Due Date:</label>
+        <input type="date" id="duedate" name="duedate" />
+        <div class="buttons">
+          <button class="button is-primary">Add Item</button>
+          <button class="button is-primary">Remove Completed</button>
+        </div>
       </div>
-      <div id="note-container">
-        <div class="todo"></div>
-        <div class="complete"></div>
+      <div class="todo-container p-3">
+        <h2>In Progress</h2>
+        <div class="todo pt-4"></div>
+        <h2 class="mt-4">Completed</h2>
+        <div class="completed pt-4"></div>
       </div>
     </div>
     <script src="./js/note.js"></script>

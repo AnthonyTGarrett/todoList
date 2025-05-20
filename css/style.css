@@ -1,3 +1,5 @@
+@import 'https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css';
+
 :root {
   scroll-behavior: smooth;
 }
@@ -13,9 +15,27 @@ body {
   padding: 0;
 }
 
-h1 {
-  font-size: 4.8rem;
-  text-align: center;
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+  rows: 1;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+}
+
+.checkbox {
+  margin-left: 0.4rem;
+}
+
+.todo,
+.completed {
+  border-top: 3px solid blue;
 }
 
 @media screen and (min-width: 768px) {
