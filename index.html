@@ -8,25 +8,33 @@
     <title>Document</title>
   </head>
   <body>
-    <h1 class="has-text-centered is-size-1-mobile">ToDo List</h1>
-    <div class="container">
-      <div class="fixed-grid has-1-cols">
+    <main class="container">
+      <h1>ToDo List</h1>
+      <section class="section-input">
         <label for="task">Enter a new item</label>
-        <input class="input is-rounded" type="text" name="task" id="task " />
+        <input type="text" name="task" id="task " />
         <label for="duedate">Due Date:</label>
         <input type="date" id="duedate" name="duedate" />
         <div class="buttons">
-          <button class="button is-primary">Add Item</button>
-          <button class="button is-primary">Remove Completed</button>
+          <button class="btn is-primary">Add Item</button>
+          <button class="btn is-primary">Remove Completed</button>
         </div>
-      </div>
-      <div class="todo-container p-3">
+      </section>
+      <section class="todo-container">
         <h2>In Progress</h2>
-        <div class="todo pt-4"></div>
-        <h2 class="mt-4">Completed</h2>
-        <div class="completed pt-4"></div>
-      </div>
-    </div>
+        <div class="in-progress-section">
+          <div class="todo-item">
+            <div class="top-task">
+              <input type="checkbox" name="check-1" id="check-1" />
+              <input type="text" name="text-1" id="text-1" />
+            </div>
+            <p class="duedate-text">Placeholder</p>
+          </div>
+        </div>
+        <h2>Completed</h2>
+        <div class="completed-section"></div>
+      </section>
+    </main>
     <script src="./js/note.js"></script>
     <script src="./js/main.js"></script>
   </body>

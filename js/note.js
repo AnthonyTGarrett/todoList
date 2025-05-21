@@ -1,4 +1,6 @@
 class TodoItem {
+  static _seed = 1;
+
   constructor(note, complete) {
     this.note = note;
     this.complete = complete;
@@ -7,25 +9,15 @@ class TodoItem {
   // Can also accept additional classes to add to the note element
   createNoteElement() {
     const newElement = document.createElement('div');
-    const newTextArea = document.createElement('textarea');
-    const newLabel = document.createElement('label');
-    const newCheckBox = document.createElement('input');
+    const newTextInput = document.createElement('input');
+    const newRadioButton = document.createElement('input');
 
-    newLabel.htmlFor = 'note';
-    newLabel.innerHTML = 'Completed';
-    newLabel.classList.add('label');
+    newTextInput.name = 'note';
+    newTextInput.value = this.note;
 
-    newTextArea.name = 'note';
-    newTextArea.value = this.note;
-    // newTextArea.classList.add('textarea');
-    newCheckBox.type = 'checkbox';
-    newCheckBox.name = 'todo';
-    newCheckBox.classList.add('checkbox');
-    newElement.classList.add('todo-item');
+    newElement.classList.add(`todoItem-${seed}`);
+    _seed++;
 
-    newLabel.appendChild(newCheckBox);
-    newElement.appendChild(newTextArea);
-    newElement.appendChild(newLabel);
     return newElement;
   }
 }
