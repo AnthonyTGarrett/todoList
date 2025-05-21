@@ -3,18 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="./css/style.css" />
     <title>Document</title>
   </head>
   <body>
     <main class="container">
-      <h1>ToDo List</h1>
+      <header>
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        <h1>Personal Goals</h1>
+      </header>
+      <hr class="breaker">
       <section class="section-input">
-        <label for="task">Enter a new item</label>
-        <input type="text" name="task" id="task " />
-        <label for="duedate">Due Date:</label>
+        <input
+          type="text"
+          name="task"
+          id="task"
+          placeholder="Enter a new goal"
+        />
+        <div class="date">
+          <label for="duedate">Due Date:</label>
         <input type="date" id="duedate" name="duedate" />
+        </div>
+        
         <div class="buttons">
           <button class="btn is-primary">Add Item</button>
           <button class="btn is-primary">Remove Completed</button>
@@ -23,18 +37,28 @@
       <section class="todo-container">
         <h2>In Progress</h2>
         <div class="in-progress-section">
-          <div class="todo-item">
+          <div class="todo-item" draggable="true">
             <div class="top-task">
               <input type="checkbox" name="check-1" id="check-1" />
-              <input type="text" name="text-1" id="text-1" />
+              <p name="text-1" id="text-1" rows="2">
+Mow my dads yard this weekend so he doesn't have to look at a tall grass yard</
+              ></p>
             </div>
-            <p class="duedate-text">Placeholder</p>
+            <p class="duedate-text">Due: 05-21-2025</p>
           </div>
         </div>
         <h2>Completed</h2>
         <div class="completed-section"></div>
       </section>
     </main>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
     <script src="./js/note.js"></script>
     <script src="./js/main.js"></script>
   </body>

@@ -9,18 +9,92 @@ body {
   font-family: 'Rubik', sans-serif;
 }
 
+header {
+  padding: 3rem 1rem;
+  color: #e0e0e0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+header ion-icon {
+  font-size: 3rem;
+  margin-right: 0.8rem;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+hr.breaker {
+  height: 3px;
+  border: 2px solid black;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 50%;
+  margin-bottom: 3rem;
+}
+
 main.container {
   max-width: 1100px;
   margin: 0 auto;
   background-color: rgba(66, 82, 110, 0.582);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+section.section-input {
+  height: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input#task {
+  width: 85%;
+  padding: 1.6rem 2rem;
+  background-color: rgba(255, 255, 255, 0.411);
+  border-radius: 15px;
+  outline: none;
+  font-size: 2.1rem;
+}
+
+::placeholder {
+  color: #333;
+  opacity: 0.6;
+  font-size: 2.1rem;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
 }
 
 .todo-item {
   background-color: rgba(255, 255, 255, 0.411);
   backdrop-filter: blur(5px);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  padding: 1.5rem 3rem;
-  border-radius: ;
+  padding: 1.8rem 1.2rem;
+  border-radius: 15px;
+  width: 90%;
+  margin: 0 auto;
+  font-size: 1.6rem;
+}
+
+.top-task {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+textarea {
+  outline: none;
+  border: none;
+  resize: none;
+  width: 80%;
 }
 
 @media screen and (min-width: 768px) {
