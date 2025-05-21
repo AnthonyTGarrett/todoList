@@ -27,6 +27,21 @@ h1 {
   font-weight: 400;
 }
 
+h2 {
+  font-size: 2.3rem;
+  font-weight: 400;
+  display: inline-block;
+  border-bottom: 2px solid #bdad91;
+  margin-bottom: 2rem;
+  padding-bottom: 0.8rem;
+  margin-left: 1.4rem;
+  display: none;
+}
+
+h2:nth-of-type(2) {
+  margin-top: 2.5rem;
+}
+
 hr.breaker {
   height: 3px;
   border: 2px solid black;
@@ -41,10 +56,10 @@ main.container {
   margin: 0 auto;
   background-color: rgba(66, 82, 110, 0.582);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  min-height: 100vh;
 }
 
 section.section-input {
-  height: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,6 +70,7 @@ input#task {
   width: 85%;
   padding: 1.6rem 2rem;
   background-color: rgba(255, 255, 255, 0.411);
+  backdrop-filter: blur(5px);
   border-radius: 15px;
   outline: none;
   font-size: 2.1rem;
@@ -66,11 +82,18 @@ input#task {
   font-size: 2.1rem;
 }
 
-.date {
+.buttons {
+  margin: 2rem 1rem;
+  padding: 1rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
+  gap: 1.3rem;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  background-color: #bdad91;
+  border-radius: 10px;
 }
 
 .todo-item {
@@ -94,8 +117,19 @@ textarea {
   outline: none;
   border: none;
   resize: none;
-  width: 80%;
+  width: 90%;
+}
+
+.in-progress,
+.completed-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin: 2rem 0;
 }
 
 @media screen and (min-width: 768px) {
+  .buttons {
+    align-self: flex-start;
+  }
 }

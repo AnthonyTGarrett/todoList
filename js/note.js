@@ -9,15 +9,29 @@ class TodoItem {
   // Can also accept additional classes to add to the note element
   createNoteElement() {
     const newElement = document.createElement('div');
-    const newTextInput = document.createElement('input');
-    const newRadioButton = document.createElement('input');
+    const newTopTask = document.createElement('div');
+    const newCheckBox = document.createElement('input');
+    const newTextArea = document.createElement('textarea');
 
-    newTextInput.name = 'note';
-    newTextInput.value = this.note;
+    newElement.classList.add('todo-item');
+    newElement.setAttribute('draggable', true);
 
-    newElement.classList.add(`todoItem-${seed}`);
-    _seed++;
+    newTopTask.classList.add('top-task');
 
+    newCheckBox.type = 'checkbox';
+    newCheckBox.name = `check-${this._seed}`;
+    newCheckBox.id = `check-${this._seed}`;
+
+    newTextArea.value = this.note;
+    newTextArea.rows = 2;
+    newTextArea.name = `text-${this._seed}`;
+    newTextArea.id = `text-${this._seed}`;
+
+    newTopTask.appendChild(newCheckBox);
+    newTopTask.appendChild(newTextArea);
+    newElement.appendChild(newTopTask);
+
+    this._seed++;
     return newElement;
   }
 }

@@ -8,7 +8,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Document</title>
+    <title>Personal Goal Tracker</title>
   </head>
   <body>
     <main class="container">
@@ -16,7 +16,7 @@
         <ion-icon name="checkmark-circle-outline"></ion-icon>
         <h1>Personal Goals</h1>
       </header>
-      <hr class="breaker">
+      <hr class="breaker" />
       <section class="section-input">
         <input
           type="text"
@@ -24,19 +24,22 @@
           id="task"
           placeholder="Enter a new goal"
         />
-        <div class="date">
-          <label for="duedate">Due Date:</label>
-        <input type="date" id="duedate" name="duedate" />
-        </div>
-        
+
         <div class="buttons">
-          <button class="btn is-primary">Add Item</button>
-          <button class="btn is-primary">Remove Completed</button>
+          <button class="btn is-primary add">Add Item</button>
+          <button class="btn is-primary clear">Clear Completed</button>
         </div>
       </section>
       <section class="todo-container">
-        <h2>In Progress</h2>
-        <div class="in-progress-section">
+        <h2 id="progress">In Progress</h2>
+        <div class="in-progress">
+          <!-- <div class="todo-item" draggable="true">
+            <div class="top-task">
+              <input type="checkbox" name="check-1" id="check-1" />
+              <textarea name="text-1" id="text-1" rows="2"
+              >Mow my dads yard this weekend so he doesn't have to look at a tall grass yard</textarea>
+            </div>
+          </div>
           <div class="todo-item" draggable="true">
             <div class="top-task">
               <input type="checkbox" name="check-1" id="check-1" />
@@ -44,10 +47,17 @@
 Mow my dads yard this weekend so he doesn't have to look at a tall grass yard</
               ></p>
             </div>
-            <p class="duedate-text">Due: 05-21-2025</p>
           </div>
+          <div class="todo-item" draggable="true">
+            <div class="top-task">
+              <input type="checkbox" name="check-1" id="check-1" />
+              <p name="text-1" id="text-1" rows="2">
+Mow my dads yard this weekend so he doesn't have to look at a tall grass yard</
+              ></p>
+            </div>
+          </div> -->
         </div>
-        <h2>Completed</h2>
+        <h2 id="completed">Completed</h2>
         <div class="completed-section"></div>
       </section>
     </main>
