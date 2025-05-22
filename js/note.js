@@ -2,11 +2,11 @@ class TodoItem {
   constructor(note, complete) {
     this.note = note;
     this.complete = complete;
-    this._seed = Math.random();
+    this.seed = Math.floor(Math.random() * 90 + 10);
   }
   // Creates a new note HTML element
   // Can also accept additional classes to add to the note element
-  createNoteElement() {
+  createNoteElement(...args) {
     const newElement = document.createElement('div');
     const newTopTask = document.createElement('div');
     const newCheckBox = document.createElement('input');
@@ -19,7 +19,8 @@ class TodoItem {
     newTopTask.classList.add('top-task');
 
     newCheckBox.type = 'checkbox';
-    newCheckBox.name = 'checkbox';
+    newCheckBox.name = `check-${this.seed}`;
+    newCheckBox.id = `check-${this.seed}`;
     newCheckBox.classList.add('checkbox');
 
     newTextArea.value = this.note;
@@ -33,7 +34,6 @@ class TodoItem {
     newTopTask.appendChild(newTextArea);
     newElement.appendChild(newTopTask);
 
-    this._seed++;
     return newElement;
   }
 }

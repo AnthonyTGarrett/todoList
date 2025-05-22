@@ -71,6 +71,16 @@ function clearList() {
 }
 
 function moveItem(e) {
-  console.log(e.target);
-  e.target.nextSibling.classList.add('item-completed');
+  const myTarget = notes.find(item => item.seed == e.target.id.slice(-2));
+  notes.forEach(item => console.log(item));
+  e.target.nextSibling.classList.toggle('item-completed');
+  e.target.parentElement.parentElement.classList.toggle('darken');
+
+  if (e.target.checked) {
+    myTarget.complete = true;
+  } else {
+    myTarget.complete = false;
+  }
+
+  // updateList();
 }
