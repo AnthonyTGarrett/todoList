@@ -20,9 +20,6 @@ document.addEventListener('DOMContentLoaded', e => {
       addItem(e);
     }
   });
-
-  const allChecks = document.querySelectorAll('.checkbox');
-  allChecks.forEach(item => item.addEventListener('click', moveItem));
 });
 
 function updateList() {
@@ -39,7 +36,8 @@ function updateList() {
   }
   todoContainer.innerHTML = '';
   for (let task of inProgress) {
-    todoContainer.appendChild(task.createNoteElement());
+    if (task.visible != true)
+      todoContainer.appendChild(task.createNoteElement());
   }
 
   const completedTasks = notes.filter(val => val.complete === true);
@@ -52,6 +50,9 @@ function updateList() {
   for (let task of completedTasks) {
     completedContainer.appendChild(task.createNoteElement());
   }
+
+  const allChecks = document.querySelectorAll('.checkbox');
+  allChecks.forEach(item => item.addEventListener('click', moveItem));
 }
 
 function addItem() {
@@ -71,13 +72,16 @@ function clearList() {
 }
 
 function moveItem(e) {
-  console.log('Wut');
   const myTarget = notes.find(item => item.seed == e.target.id.slice(-2));
+  console.log(myTarget.complete);
+  console.log(myTarget.visible);
 
-  myTarget.addClasses('darken', 'item-completed');
-  if (e.target.checked) {
+  if (myTarget.complete === false) {
+    myTarget.addClasses('darken', 'item-completed');
     myTarget.complete = true;
-  } else {
+    myTarget.visible = false;
+  } else if (myTarget.complete === true) {
+    myTarget.removeClasses('darken', 'item-completed');
     myTarget.complete = false;
     myTarget.visible = false;
   }

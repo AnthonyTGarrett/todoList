@@ -12,6 +12,10 @@ class TodoItem {
       this.classes.push(item);
     }
   }
+
+  removeClasses(...args) {
+    this.classes = [];
+  }
   // Creates a new note HTML element
   // Can also accept additional classes to add to the note element
   createNoteElement() {
