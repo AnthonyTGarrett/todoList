@@ -51,7 +51,7 @@ function updateList() {
   }
 
   const allChecks = document.querySelectorAll('.checkbox');
-  allChecks.forEach(item => item.addEventListener('change', moveItem));
+  allChecks.forEach(item => item.addEventListener('click', moveItem));
 }
 
 function addItem() {
@@ -72,5 +72,5 @@ function clearList() {
 
 function moveItem(e) {
   console.log(e.target);
-  e.target.classList.add('item-completed');
+  e.target.nextSibling.classList.add('item-completed');
 }
