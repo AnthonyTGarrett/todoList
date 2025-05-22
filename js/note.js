@@ -2,19 +2,28 @@ class TodoItem {
   constructor(note, complete) {
     this.note = note;
     this.complete = complete;
+    this.visible = false;
+    this.classes = [];
     this.seed = Math.floor(Math.random() * 90 + 10);
+  }
+
+  addClasses(...args) {
+    for (let item of args) {
+      this.classes.push(item);
+    }
   }
   // Creates a new note HTML element
   // Can also accept additional classes to add to the note element
-  createNoteElement(...args) {
+  createNoteElement() {
     const newElement = document.createElement('div');
     const newTopTask = document.createElement('div');
     const newCheckBox = document.createElement('input');
     const newTextArea = document.createElement('textarea');
 
     newElement.classList.add('todo-item');
-
-    newElement.setAttribute('draggable', true);
+    for (let item of this.classes) {
+      newElement.classList.add(item);
+    }
 
     newTopTask.classList.add('top-task');
 

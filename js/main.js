@@ -1,6 +1,6 @@
 'use strict';
 
-const notes = [];
+let notes = [];
 
 function addGenericEventHandler(type, selector, callback, parent = document) {
   parent.addEventListener(type, e => {
@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', e => {
       addItem(e);
     }
   });
+
+  const allChecks = document.querySelectorAll('.checkbox');
+  allChecks.forEach(item => item.addEventListener('click', moveItem));
 });
 
 function updateList() {
@@ -49,9 +52,6 @@ function updateList() {
   for (let task of completedTasks) {
     completedContainer.appendChild(task.createNoteElement());
   }
-
-  const allChecks = document.querySelectorAll('.checkbox');
-  allChecks.forEach(item => item.addEventListener('click', moveItem));
 }
 
 function addItem() {
@@ -65,22 +65,22 @@ function addItem() {
 }
 
 function clearList() {
-  notes.length = 0;
-  document.getElementById('task').value = '';
+  document.querySelector('.completed-section').innerHTML = '';
+  notes = notes.filter(val => val.complete === false);
   updateList();
 }
 
 function moveItem(e) {
+  console.log('Wut');
   const myTarget = notes.find(item => item.seed == e.target.id.slice(-2));
-  notes.forEach(item => console.log(item));
-  e.target.nextSibling.classList.toggle('item-completed');
-  e.target.parentElement.parentElement.classList.toggle('darken');
 
+  myTarget.addClasses('darken', 'item-completed');
   if (e.target.checked) {
     myTarget.complete = true;
   } else {
     myTarget.complete = false;
+    myTarget.visible = false;
   }
 
-  // updateList();
+  updateList();
 }
