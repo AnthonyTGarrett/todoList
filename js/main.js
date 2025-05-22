@@ -11,15 +11,15 @@ function addGenericEventHandler(type, selector, callback, parent = document) {
 }
 
 document.addEventListener('DOMContentLoaded', e => {
-  // notes.push(new TodoItem('bake a cake', false));
-  // notes.push(new TodoItem('Mow my dads yard', false));
-  // notes.push(new TodoItem('Finish creating the new big app', false));
-  // notes.push(new TodoItem('Try to go to the gym on occasion', false));
+  clearList();
+  const task = document.getElementById('task');
   addGenericEventHandler('click', '.add', addItem);
   addGenericEventHandler('click', '.clear', clearList);
-  // function changeToCompleted(e) {
-  //   e.target.classList.toggle('completed');
-  // }
+  task.addEventListener('keydown', e => {
+    if (e.code === 'Enter') {
+      addItem(e);
+    }
+  });
 });
 
 function updateList() {
@@ -28,30 +28,33 @@ function updateList() {
   const addHeader = document.getElementById('progress');
   const completedHeader = document.getElementById('completed');
 
-  const inProgress = notes.filter(val => (val.complete = false));
-  if (inProgress !== undefined || inProgress.length !== 0) {
+  const inProgress = notes.filter(val => val.complete === false);
+  if (inProgress.length !== 0) {
     addHeader.style.display = 'block';
   } else {
     addHeader.style.display = 'none';
   }
+  todoContainer.innerHTML = '';
   for (let task of inProgress) {
-    todoContainer.innerHTML = '';
     todoContainer.appendChild(task.createNoteElement());
   }
 
-  const completedTasks = notes.filter(val => (val.complete = true));
-  if (inProgress !== undefined || inProgress.length !== 0) {
+  const completedTasks = notes.filter(val => val.complete === true);
+  if (completedTasks.length !== 0) {
     completedHeader.style.display = 'block';
   } else {
     completedHeader.style.display = 'none';
   }
+  completedContainer.innerHTML = '';
   for (let task of completedTasks) {
-    completedContainer.innerHTML = '';
     completedContainer.appendChild(task.createNoteElement());
   }
+
+  const allChecks = document.querySelectorAll('.checkbox');
+  allChecks.forEach(item => item.addEventListener('change', moveItem));
 }
 
-function addItem(e) {
+function addItem() {
   const inputTask = document.getElementById('task');
   if (inputTask.value !== '') {
     notes.push(new TodoItem(inputTask.value, false));
@@ -63,5 +66,11 @@ function addItem(e) {
 
 function clearList() {
   notes.length = 0;
+  document.getElementById('task').value = '';
   updateList();
+}
+
+function moveItem(e) {
+  console.log(e.target);
+  e.target.classList.add('item-completed');
 }
