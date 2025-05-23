@@ -1,7 +1,10 @@
 'use strict';
 
+// Global array that holds all of the tasks
+// Using let because I need to re-assign it to a filtered array later
 let notes = [];
 
+// Generic function for adding event listeners
 function addGenericEventHandler(type, selector, callback, parent = document) {
   parent.addEventListener(type, e => {
     if (e.target.matches(selector)) {
@@ -10,6 +13,7 @@ function addGenericEventHandler(type, selector, callback, parent = document) {
   });
 }
 
+// Document load events
 document.addEventListener('DOMContentLoaded', e => {
   clearList();
   const task = document.getElementById('task');
@@ -22,6 +26,8 @@ document.addEventListener('DOMContentLoaded', e => {
   });
 });
 
+// Function that updates all of the tasks that are present including the in progress tasks
+// and the completed tasks
 function updateList() {
   const todoContainer = document.querySelector('.in-progress');
   const completedContainer = document.querySelector('.completed-section');
@@ -55,6 +61,7 @@ function updateList() {
   allChecks.forEach(item => item.addEventListener('click', moveItem));
 }
 
+// Function to add an item to the task list
 function addItem() {
   const inputTask = document.getElementById('task');
   if (inputTask.value !== '') {
@@ -65,12 +72,15 @@ function addItem() {
   updateList();
 }
 
+// Function to clear out the completed tasks
 function clearList() {
   document.querySelector('.completed-section').innerHTML = '';
   notes = notes.filter(val => val.complete === false);
   updateList();
 }
 
+// Function to handle the clicks on the checkboxes that toggles a couple of classes
+// and updates the object complete property
 function moveItem(e) {
   const myTarget = notes.find(item => item.seed == e.target.id.slice(-2));
   console.log(myTarget.complete);
