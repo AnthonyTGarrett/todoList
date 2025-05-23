@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', e => {
   addGenericEventHandler('click', '.add', addItem);
   addGenericEventHandler('click', '.clear', clearList);
   task.addEventListener('keydown', e => {
-    if (e.code === 'Enter') {
+    if (e.keyCode === 13) {
       addItem(e);
     }
   });
