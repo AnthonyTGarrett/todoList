@@ -1,4 +1,5 @@
-'use strict';
+import { TodoItem } from './note.js';
+('use strict');
 
 // Global array that holds all of the tasks
 // Using let because I need to re-assign it to a filtered array later

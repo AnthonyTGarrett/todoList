@@ -1,4 +1,4 @@
-class TodoItem {
+export class TodoItem {
   constructor(note, complete) {
     this.note = note;
     this.complete = complete;
